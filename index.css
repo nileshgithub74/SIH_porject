@@ -1,0 +1,318 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.language-container {
+    margin-right: 20px;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+}
+
+.login-btn {
+    margin: 0 5px;
+}
+
+.login-btn:hover {
+    background-color: #32CD32;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+/* Normal style for the text */
+  
+/* Hero Section */
+.hero-section {
+    background: url('./IMAGES/backgroundimage.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-content .btn-primary {
+    background-color: #32CD32;
+    border: none;
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-description {
+    font-size: 0.9rem;
+}
+
+.payment-icons img {
+    width: 40px;
+    margin: 5px;
+}
+
+.social-media-icons img {
+    width: 30px;
+    margin: 0 10px;
+}
+
+.social-media-icons a {
+    margin: 0 5px;
+}
+
+.footer h5 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #32CD32;
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #f8f9fa;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer p {
+    font-size: 0.8rem;
+}
+
+/* Search Bar */
+.input-group input {
+    border-radius: 0;
+}
+
+.input-group-append .btn {
+    border-radius: 0;
+}
+
+/* Agri Info Section */
+.agri-info {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+.info-card {
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar-expand-lg .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .social-media-icons img {
+        width: 20px;
+    }
+
+    .payment-icons img {
+        width: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .info-card h3 {
+        font-size: 1.25rem;
+    }
+
+    .info-card p {
+        font-size: 0.875rem;
+    }
+
+    .login-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .login-btn {
+        margin-bottom: 10px;
+    }
+
+    .language-container {
+        margin-bottom: 10px;
+    }
+}
+
+/* Custom Slider Controls */
+.slider-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.slider-btn {
+    background-color: #32CD32;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-btn:hover {
+    background-color: #28a745;
+}
+
+
+
+
+.nav-link-pr:hover{
+    border: 5px solid  red;
+    border-radius: 15px;
+    text-decoration: none;
+    
+}
+
+
+
+
+.nav-link-pr{
+     border: 2px solid  rgb(231, 187, 187);
+    border-radius: 15px;
+    text-decoration: none;
+    /* background-color: #7787b8; */
+
+}
+
+
+
+
+
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {
+    vertical-align: middle;
+    height: 300px;
+    border-radius: 20px;
+border: 2px solid white;
+
+
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 600px; 
+    /* max-height: 600px; */
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: black;
+  font-size: 35px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 200px) {
+  .text {font-size: 11px}
+}

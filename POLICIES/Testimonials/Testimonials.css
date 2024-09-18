@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-title {
+    color: #32CD32; /* Applying the color #32CD32 as you requested */
+}
+
+.card-body p {
+    color: #555;
+}
+
+/* Responsive layout adjustments for better spacing on small screens */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}

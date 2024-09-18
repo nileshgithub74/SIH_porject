@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisaan2Bazaar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="seller-login.css">
+</head>
+<body>
+
+    <!-- Header with Language and Login -->
+    <header class="bg-light py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Language Select -->
+            <div class="language-container">
+                <select id="language-select" class="form-control">
+                    <option value="en">Select Language</option>
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                </select>
+            </div>
+            <!-- Login Buttons -->
+            <div class="login-container d-flex justify-content-end">
+                <a href="/BUYERLOGIN/buyer-login.html"><button class="btn btn-outline-secondary login-btn mx-2" data-translate="buyerLogin">Buyer Login</button></a>
+                <a href="/SELLERLOGIN/seller-login.html"><button class="btn btn-outline-secondary login-btn" data-translate="sellerLogin">Seller Login</button></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="container my-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for Products..." data-translate="searchPlaceholder">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">&#x1F50D;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" data-translate="brandName">Kisaan2Bazaar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html" data-translate="home">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-translate="categories">Categories</a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="../CATEGORIES/Seeds/Seeds.html" data-translate="seeds">Seeds</a>
+                            <a class="dropdown-item" href="../CATEGORIES/Fertilizers/fertilizer.html" data-translate="fertilizers">Fertilizers</a>
+                            <a class="dropdown-item" href="../CATEGORIES/Irrigations/irrigation.html" data-translate="irrigations">Irrigations</a>
+                            <a class="dropdown-item" href="../CATEGORIES/AnimalFeedandDairy/animal.html" data-translate="animalFeed">Animal Feed and Dairy</a>
+                            <a class="dropdown-item" href="../CATEGORIES/FlowersandPlants/flower.html" data-translate="flowersPlants">Flowers and Plants</a>
+                            <a class="dropdown-item" href="../CATEGORIES/OrganicGroceries/organic.html" data-translate="organicGroceries">Organic Groceries</a>
+                            <a class="dropdown-item" href="../CATEGORIES/CropCommodities/crop.html" data-translate="cropCommodities">Crop Commodities</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-translate="products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-translate="aboutUs">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-translate="contactUs">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow rounded-lg border-success">
+          <div class="row g-0">
+            <div class="col-md-6">
+              <div class="card-header">
+                <h3 class="card-title">Seller Login</h3>
+              </div>
+              <div class="card-body">
+                <form id="login-form">
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                  </div>
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="rememberMe">
+                      <label class="form-check-label" for="rememberMe">Remember Me</label>
+                    </div>
+                    <a href="#">Forgot Password?</a>
+                  </div>
+                  <button type="submit" class="btn btn-success mt-3 btn-login">Login</button>
+                  <div>
+                    <div class="register-now-question">
+                      Dont have an account?
+                    </div>
+                    <div class="register-now">
+                      <a href="/SELLERLOGIN/seller-register.html">Register Now</a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <img src="login.jpg" class="img-fluid rounded-lg img-type" alt="credentials">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    <!-- Footer Section -->
+    <footer class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Left Column - Kisaan Trade Info -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <img src="logo.png" alt="Logo" class="footer-logo">
+                    <p data-translate="footerDescription">Kisaan Trade is a global agriculture B2B online marketplace that connects buyers and sellers and helps manufacturers and suppliers do business with each other.</p>
+                </div>
+
+                <!-- Center Column - Policies -->
+                <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                    <h5 data-translate="policies">Policies</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" data-translate="policy">Policy</a></li>
+                        <li><a href="#" data-translate="termsConditions">Terms & Conditions</a></li>
+                        <li><a href="#" data-translate="returnPolicy">Return Policy</a></li>
+                        <li><a href="#" data-translate="privacyPolicy">Privacy Policy</a></li>
+                        <li><a href="#" data-translate="testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Column - Useful Links & Social Media -->
+                <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                    <h5 data-translate="usefulLinks">Useful Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" data-translate="aboutUs">About Us</a></li>
+                        <li><a href="#" data-translate="contactUs">Contact Us</a></li>
+                        <li><a href="#" data-translate="chatBot">Chat Bot</a></li>
+                    </ul>
+                    <!-- <div class="social-media-icons">
+                        <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                        <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                    </div> -->
+                </div>
+
+                <!-- Center Column - Payment Logos -->
+                <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+                    <h5 data-translate="acceptedPayments">Accepted Payments</h5>
+                    <div class="payment-icons">
+                        <img src="gpay.png" alt="Google Pay">
+                        <img src="phonepay.png" alt="PhonePe">
+                        <img src="visa.png" alt="Visa">
+                        <img src="creditcard.png" alt="Credit Card">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center py-3">
+            <p>© 2023 KISAANTRADE.COM. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        window.onload = function() {
+            const userEmail = localStorage.getItem('userEmail');
+            const userPassword = localStorage.getItem('userPassword');
+
+            if (userEmail && userPassword) {
+                alert("User is already logged in");
+                window.location.href = '/index.html';
+            }
+        };
+
+
+
+
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();  // Prevent form from submitting the default way (page reload)
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await axios.post('http://localhost:5000/seller-login', { 
+                    email, 
+                    password 
+                });
+                alert(response.data.message);  // Show success or failure message
+
+                if (response.status === 200) {
+                    localStorage.setItem('role',"seller");
+                    localStorage.setItem('userEmail', email);
+                    localStorage.setItem('userPassword', password); // In real-world apps, never store passwords in localStorage
+                    alert(response.data.message);  // Show success or failure message
+
+                    window.location.href = '/index.html';  // Redirect on successful login
+
+
+
+                }
+            } catch (error) {
+                alert(error.response?.data?.message || 'Login failed');
+            }
+        });
+    </script>
+
+
+</body>
+</html>

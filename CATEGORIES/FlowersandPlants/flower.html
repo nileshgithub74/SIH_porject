@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="flower.css"> <!-- Reference to your CSS file -->
+</head>
+<body>
+
+    <!-- Header with Language and Login -->
+    <header class="bg-light py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Language Select -->
+            <div class="language-container">
+                <select id="language-select" class="form-control">
+                    <option value="en">Select Language</option>
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                </select>
+            </div>
+            <!-- Login Buttons -->
+            <div class="login-container d-flex justify-content-end">
+                <!-- Buttons for login and profile will be toggled by JavaScript -->
+                <div id="authButtons">
+                    <a href="../../BUYERLOGIN/buyer-login.html"><button class="btn btn-outline-secondary login-btn mx-2" data-translate="buyerLogin">Buyer Login</button></a>
+                    <a href="../../SELLERLOGIN/seller-login.html"><button class="btn btn-outline-secondary login-btn" data-translate="sellerLogin">Seller Login</button></a>
+                </div>
+                <!-- Profile icon will be inserted dynamically -->
+                <div id="profileButton" class="d-none">
+                    <a href="/profile/profile.html">
+                        <img src="assets/profile.png" alt="Profile" style="width:40px; height:40px; border-radius:50%;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="container my-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for Products...">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">&#x1F50D;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Kisaan2Bazaar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="../Seeds/Seeds.html">Seeds</a>
+                            <a class="dropdown-item" href="../Fertilizers/fertilizer.html">Fertilizers</a>
+                            <a class="dropdown-item" href="../Irrigations/irrigation.html">Irrigations</a>
+                            <a class="dropdown-item" href="../AnimalFeedandDairy/animal.html">Animal Feed and Dairy</a>
+                            <a class="dropdown-item" href="../FlowersandPlants/flower.html">Flowers and Plants</a>
+                            <a class="dropdown-item" href="../OrganicGroceries/organic.html">Organic Groceries</a>
+                            <a class="dropdown-item" href="../CropCommodities/crop.html">Crop Commodities</a>
+                         </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../../PRODUCTS/product.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../ABOUTUS/AboutUs.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../CONTACTUS/ContactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Product Section -->
+    <div class="product-container">
+        <div class="product-card">
+            <a href="program.html">
+                <div class="product-image">
+                    <img src="images/apple.png" alt="Sunflower Seeds">
+                </div>
+            </a>
+            <h3 class="product-name">Apple</h3>
+        </div>
+        <div class="product-card">
+            <a href="plant2.html">
+                <div class="product-image">
+                    <img src="images/guava.png" alt="Tomato Seeds">
+                </div>
+            </a>
+            <h3 class="product-name">Guava</h3>
+        </div>
+        <div class="product-card">
+            <a href="plant3.html">
+                <div class="product-image">
+                    <img src="images/santara.png" alt="Cucumber Seeds">
+                </div>
+            </a>
+            <h3 class="product-name">Nagpuri santara</h3>
+        </div>
+        <div class="product-card">
+            <a href="plant4.html">
+                <div class="product-image">
+                    <img src="images/shisham.jpg" alt="Carrot Seeds">
+                </div>
+            </a>
+            <h3 class="product-name">Shisham</h3>
+        </div>
+        
+        <div class="product-card">
+            <a href="plant5.html">
+                <div class="product-image">
+                    <img src="images/walnut.jpg" alt="Pepper Seeds">
+                </div>
+            </a>
+            <h3 class="product-name">Walnut</h3>
+        </div> 
+        <!-- More product cards can be added here -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Left Column - Kisaan Trade Info -->
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <img src="./IMAGES/logo.png" alt="Logo" class="footer-logo">
+                    <p>Kisaan Trade is a global agriculture B2B platform connecting farmers and consumers. Explore our marketplace for a diverse range of products and services.</p>
+                </div>
+                <!-- Center Column - Navigation Links -->
+                <div class="col-lg-6 col-md-12 mb-4">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>Company</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="../../ABOUTUS/AboutUs.html">About Us</a></li>
+                                <li><a href="../../CONTACTUS/ContactUs.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Categories</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Seeds</a></li>
+                                <li><a href="#">Fertilizers</a></li>
+                                <li><a href="#">Irrigations</a></li>
+                                <li><a href="#">Animal Feed</a></li>
+                                <li><a href="#">Flowers & Plants</a></li>
+                                <li><a href="#">Organic Groceries</a></li>
+                                <li><a href="#">Crop Commodities</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Follow Us</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">Instagram</a></li>
+                                <li><a href="#">LinkedIn</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column - Newsletter Signup -->
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <h5>Newsletter</h5>
+                    <form id="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="newsletter-email" placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Slider Arrow Buttons -->
+    
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="flower.js"></script> <!-- Reference to your JS file if needed -->
+    <script>
+        // Check if user is logged in (email and password stored in localStorage)
+        const email = localStorage.getItem('userEmail');
+        const password = localStorage.getItem('userPassword');
+
+        console.log(email);
+
+        const authButtons = document.getElementById('authButtons');
+        const profileButton = document.getElementById('profileButton');
+
+        if (email && password) {
+            // User is logged in, show the profile icon
+            authButtons.classList.add('d-none');  // Hide login buttons
+            profileButton.classList.remove('d-none');  // Show profile icon
+        } else {
+            // User is not logged in, show the login buttons
+            authButtons.classList.remove('d-none');  // Show login buttons
+            profileButton.classList.add('d-none');  // Hide profile icon
+        }
+    </script>
+</body>
+</html>

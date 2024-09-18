@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="card2.css">
+    <style>
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 16px;
+            margin: 16px;
+            display: inline-block;
+            width: calc(33% - 32px);
+            box-sizing: border-box;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        #cart-container{
+            margin-left: 20%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+    </style>
+    <link rel="stylesheet" href="card2.css">
+
+</head>
+<body>
+    <!-- Header with Language and Login -->
+    <header class="bg-light py-2">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Language Select -->
+            <div class="language-container">
+                <select id="language-select" class="form-control">
+                    <option value="en">Select Language</option>
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                </select>
+            </div>
+            <!-- Login Buttons -->
+            <div class="login-container d-flex justify-content-end">
+                <!-- Buttons for login and profile will be toggled by JavaScript -->
+                <div id="authButtons">
+                    <a href="BUYERLOGIN/buyer-login.html"><button class="btn btn-outline-secondary login-btn mx-2" data-translate="buyerLogin">Buyer Login</button></a>
+                    <a href="SELLERLOGIN/seller-login.html"><button class="btn btn-outline-secondary login-btn" data-translate="sellerLogin">Seller Login</button></a>
+                </div>
+                <!-- Profile icon will be inserted dynamically -->
+                <div id="profileButton" class="d-none">
+                    <a href="/profile/profile.html">
+                        <img src="assets/profile.png" alt="Profile" style="width:40px; height:40px; border-radius:50%;">
+                    </a>
+                    <a href="/cart/card.html">
+                        <img src="" alt="cart" style="width:40px; height:40px; border-radius:50%;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="container my-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for Products..." data-translate="searchPlaceholder">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">&#x1F50D;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" data-translate="brandName">Kisaan2Bazaar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-translate="home">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-translate="categories">Categories</a>
+                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                            <a class="dropdown-item" href="./CATEGORIES/Seeds/Seeds.html" data-translate="seeds">Seeds</a>
+                            <a class="dropdown-item" href="./CATEGORIES/Fertilizers/fertilizer.html" data-translate="fertilizers">Fertilizers</a>
+                            <a class="dropdown-item" href="./CATEGORIES/Irrigations/irrigation.html" data-translate="irrigations">Irrigations</a>
+                            <a class="dropdown-item" href="./CATEGORIES/AnimalFeedandDairy/animal.html" data-translate="animalFeed">Animal Feed and Dairy</a>
+                            <a class="dropdown-item" href="./CATEGORIES/FlowersandPlants/flower.html" data-translate="flowersPlants">Flowers and Plants</a>
+                            <a class="dropdown-item" href="./CATEGORIES/OrganicGroceries/organic.html" data-translate="organicGroceries">Organic Groceries</a>
+                            <a class="dropdown-item" href="./CATEGORIES/CropCommodities/crop.html" data-translate="cropCommodities">Crop Commodities</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="./PRODUCTS/product.html" data-translate="products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ABOUTUS/AboutUs.html" data-translate="aboutUs">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="CONTACTUS/ContactUs.html" data-translate="contactUs">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link nav-link-pr" href="./prem/sail.html" data-translate="contactUs">SALE</a></li>
+        &nbsp;&nbsp;<li class="nav-item"><a class="nav-link nav-link-pr" href="./prem/premium.html" data-translate="contactUs">PREMIUM</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav> 
+    <div id="cart-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            async function loadCartItems() {
+                const email = localStorage.getItem('userEmail');  // Retrieve the email from local storage
+
+                if (!email) {
+                    alert('No user is logged in');
+                    window.location.href = '/buyer-login.html';  // Redirect to login page if not logged in
+                    return;
+                }
+
+                try {
+                    // Send a POST request to fetch cart items
+                    const response = await axios.post('http://localhost:5000/buyer-get-cart', { email });
+                    const cartItems = response.data;
+
+                    const cartContainer = document.getElementById('cart-container');
+
+                    if (cartItems.length === 0) {
+                        cartContainer.innerHTML = `<p>No items in the cart.</p>`;
+                    } else {
+                        let cartList = '<h2>Your Cart</h2>';
+                        cartItems.forEach(cartItem => {
+                            cartItem.items.forEach(item => {
+                                cartList += `
+                                    <div class="product-card">
+                                        <img src="${item.itemImg}" alt="Product Image" style="width:150px;height:150px;"><br>
+                                        <p><strong>Item Description:</strong> ${item.itemDescription}</p>
+                                        <p><strong>Quantity:</strong> ${item.itemQuantity} kg</p>
+                                        <p><strong>Price:</strong> ₹${item.itemPrice} per kg</p>
+                                        <p><strong>Total:</strong> ₹${item.itemQuantity * item.itemPrice}</p>
+                                    </div>
+                                `;
+                            });
+                        });
+                        cartContainer.innerHTML = cartList;
+                    }
+                } catch (error) {
+                    console.error('Error fetching cart items', error);
+                    alert('Error fetching cart items: ' + (error.response?.data?.message || 'Unknown error'));
+                }
+            }
+
+            // Load and display cart items when the page loads
+            loadCartItems();
+        });
+    </script>
+</body>
+</html>
+
+
+ <!-- Footer Section -->
+ <footer class="bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Left Column - Kisaan Trade Info -->
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4" >
+                <img src="./logo.jpg" alt="Logo" class="footer-logo" style="border-radius:10px">
+                <p data-translate="footerDescription">Kisaan Trade is a global agriculture B2B platform connecting farmers and consumers. Explore our marketplace for a diverse range of products and services.</p>
+            </div>
+
+
+
+
+
+            <!-- Center Column - Navigation Links -->
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5 data-translate="company">Company</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="ABOUTUS/AboutUs.html" data-translate="aboutUs">About Us</a></li>
+                            <li><a href="CONTACTUS/ContactUs.html" data-translate="contactUs">Contact Us</a></li>
+                            <li><a href="POLICIES/PrivacyPolicy/PrivacyPolicy.html" data-translate="contactUs">Privacy Policy</a></li>
+                            <li><a href="POLICIES/ReturnPolicy/ReturnPolicy.html" data-translate="contactUs">Return Policy</a></li>
+                             <li><a href="POLICIES/Testimonials/Testimonials.html" data-translate="contactUs">Testimonial</a></li>
+                            <li><a href="POLICIES/Terms&Comnditions/Terms&Conditions.html" data-translate="contactUs">Terms and Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 data-translate="categories">Categories</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="./CATEGORIES/Seeds/Seeds.html" data-translate="seeds">Seeds</a></li>
+                            <li><a href="./CATEGORIES/Fertilizers/fertilizer.html" data-translate="fertilizers">Fertilizers</a></li>
+                            <li><a href="./CATEGORIES/Irrigations/irrigation.html" data-translate="irrigations">Irrigations</a></li>
+                            <li><a href="./CATEGORIES/AnimalFeedandDairy/animal.html" data-translate="animalFeed">Animal Feed</a></li>
+                            <li><a href="./CATEGORIES/FlowersandPlants/flower.html" data-translate="flowersPlants">Flowers & Plants</a></li>
+                            <li><a href="./CATEGORIES/OrganicGroceries/organic.html" data-translate="organicGroceries">Organic Groceries</a></li>
+                            <li><a href="./CATEGORIES/CropCommodities/crop.html" data-translate="cropCommodities">Crop Commodities</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 data-translate="followUs">Follow Us</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="https://www.facebook.com/" data-translate="facebook">Facebook</a></li>
+                            <li><a href="https://www.twitter.com/" data-translate="twitter">Twitter</a></li>
+                            <li><a href="https://www.instagram.com/" data-translate="instagram">Instagram</a></li>
+                            <li><a href="https://www.linkedin.com/" data-translate="linkedin">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                      
+                </div>
+            </div>
+            <!-- Right Column - Newsletter Signup -->
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                <h5 data-translate="newsletter">Newsletter</h5>
+                <form id="newsletter-form">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="newsletter-email" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Slider Arrow Buttons -->
+
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="index.js"></script>
+
+<script>
+    // Check if user is logged in (email and password stored in localStorage)
+    const email = localStorage.getItem('userEmail');
+    const password = localStorage.getItem('userPassword');
+
+    console.log(email);
+
+    const authButtons = document.getElementById('authButtons');
+    const profileButton = document.getElementById('profileButton');
+
+    if (email && password) {
+        // User is logged in, show the profile icon
+        authButtons.classList.add('d-none');  // Hide login buttons
+        profileButton.classList.remove('d-none');  // Show profile icon
+    } else {
+        // User is not logged in, show the login buttons
+        authButtons.classList.remove('d-none');  // Show login buttons
+        profileButton.classList.add('d-none');  // Hide profile icon
+    }
+</script>
+
+
+</body>
+</html>
